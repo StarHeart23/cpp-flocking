@@ -21,6 +21,7 @@ public:
 
 public:
 	double get_bounding_radius() const { return m_bounding_radius; }
+    void set_bounding_radius(double radius) { m_bounding_radius = radius; }
 
 public:
 	void EnforceNonPenetration(GameEntity* pAgent);

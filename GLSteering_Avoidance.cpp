@@ -41,8 +41,8 @@ GLVector GLSteering_Avoidance::calculate()
 
 			if(vLocalObsPosition.x >= 0)
 			{
-				double dExpandedRadius=m_pVehicle->GetBoundingSphere().radius + pObs->GetBoundingSphere().radius;
-				if(abs(vLocalObsPosition.z) < dExpandedRadius)
+				double dExpandedRadius=m_pVehicle->get_bounding_radius() + pObs->get_bounding_radius();
+				if(std::abs(vLocalObsPosition.z) < dExpandedRadius)
 				{
 					double sqrt_part=sqrt(dExpandedRadius * dExpandedRadius - vLocalObsPosition.z * vLocalObsPosition.z);
 					double distx=vLocalObsPosition.x - sqrt_part;
@@ -64,9 +64,9 @@ GLVector GLSteering_Avoidance::calculate()
 	if(pClosestObs != NULL)
 	{
 		double multiplier=1.0 + (dBoxLength - vClosestObsLocalPosition.x) / dBoxLength;
-		vForce.z=(pClosestObs->GetBoundingSphere().radius - vClosestObsLocalPosition.z) * multiplier;
+		vForce.z=(pClosestObs->get_bounding_radius() - vClosestObsLocalPosition.z) * multiplier;
 
-		vForce.x=(pClosestObs->GetBoundingSphere().radius - vClosestObsLocalPosition.x) * m_braking_weight;
+		vForce.x=(pClosestObs->get_bounding_radius() - vClosestObsLocalPosition.x) * m_braking_weight;
 
 		vForce=m_pVehicle->LocalToWorldVector(vForce);
 	}

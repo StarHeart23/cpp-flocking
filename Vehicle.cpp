@@ -81,7 +81,7 @@ void Vehicle::tag_neighbors(double detection_radius)
 			continue;
 		}
 		double distanceSq=(pAgent->get_position() - m_position).lengthSq();
-		double range=detection_radius + pAgent->GetBoundingSphere().radius;
+		double range=detection_radius + pAgent->get_bounding_radius();
 		if(distanceSq < range * range)
 		{
 			pAgent->tag();
@@ -103,7 +103,7 @@ void Vehicle::tag_obstacles(double scan_radius)
 			continue;
 		}
 		double distanceSq=(pObs->get_position() - m_position).lengthSq();
-		double range=scan_radius + pObs->GetBoundingSphere().radius;
+		double range=scan_radius + pObs->get_bounding_radius();
 		if(distanceSq < range * range)
 		{
 			pObs->tag();

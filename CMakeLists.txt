@@ -18,5 +18,6 @@ set(SOURCE_FILES library.cpp library.h
         GLRole_Unknown.cpp GLRole_Unknown.h
         GLSteering.cpp GLSteering.h
         GLSteering_Alignment.cpp GLSteering_Alignment.h
+        GLSteering_Avoidance.cpp GLSteering_Avoidance.h
         )
 add_library(cpp_flocking ${SOURCE_FILES})
