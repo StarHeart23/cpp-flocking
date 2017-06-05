@@ -2,7 +2,7 @@
 #include "Vehicle.h"
 #include "../GLShape/GLPlane.h"
 #include "../GLShape/GLLineSegment.h"
-#include "../GameWorld/GameWorld.h"
+#include "GameWorld.h"
 #include <cmath>
 #include <cfloat>
 

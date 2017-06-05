@@ -1,6 +1,6 @@
 #include "GLSteering_Avoidance.h"
 #include "Vehicle.h"
-#include "../GameWorld/GameWorld.h"
+#include "GameWorld.h"
 #include <cfloat>
 #include <cmath>
 #include <iostream>

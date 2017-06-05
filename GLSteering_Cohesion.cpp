@@ -1,6 +1,6 @@
 #include "GLSteering_Cohesion.h"
 #include "Vehicle.h"
-#include "../GameWorld/GameWorld.h"
+#include "GameWorld.h"
 #include <iostream>
 
 GLSteering_Cohesion::GLSteering_Cohesion(Vehicle* pVehicle)

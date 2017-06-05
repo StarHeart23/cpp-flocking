@@ -1,6 +1,6 @@
 #include "GLSteering_Alignment.h"
 #include "Vehicle.h"
-#include "../GameWorld/GameWorld.h"
+#include "GameWorld.h"
 #include <iostream>
 
 GLSteering_Alignment::GLSteering_Alignment(Vehicle* pVehicle)
