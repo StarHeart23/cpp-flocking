@@ -1,5 +1,5 @@
 #include "GLSteering_OffsetPursuit.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 
 GLSteering_OffsetPursuit::GLSteering_OffsetPursuit(Vehicle* pVehicle)
 : GLSteering(pVehicle)

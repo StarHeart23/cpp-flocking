@@ -1,5 +1,5 @@
 #include "GLSteering_WallAvoidance.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 #include "../GLShape/GLPlane.h"
 #include "../GLShape/GLLineSegment.h"
 #include "../GameWorld/GameWorld.h"

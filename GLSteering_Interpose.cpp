@@ -1,5 +1,5 @@
 #include "GLSteering_Interpose.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 
 GLSteering_Interpose::GLSteering_Interpose(Vehicle* pVehicle)
 : GLSteering(pVehicle)

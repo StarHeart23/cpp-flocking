@@ -1,5 +1,5 @@
 #include "GLSteering_Separation.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 #include "../GameWorld/GameWorld.h"
 
 GLSteering_Separation::GLSteering_Separation(Vehicle* pVehicle)

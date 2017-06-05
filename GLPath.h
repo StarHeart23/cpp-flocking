@@ -1,8 +1,7 @@
 #ifndef _H_GL_PATH_H
 #define _H_GL_PATH_H
 
-#include "../GLObject/GLObject.h"
-#include "../GLVector/GLVector.h"
+#include "GLVector.h"
 
 class GLPathNode
 {
@@ -22,9 +21,6 @@ public:
 	virtual ~GLPath();
 
 public:
-	virtual void Render();
-	virtual void PreRender();
-	virtual void PostRender();
 	virtual void Update(const long& lElapsedTicks)  { }
 
 public:

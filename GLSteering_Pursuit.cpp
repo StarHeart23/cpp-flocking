@@ -1,5 +1,5 @@
 #include "GLSteering_Pursuit.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 #include <iostream>
 
 GLSteering_Pursuit::GLSteering_Pursuit(Vehicle* pVehicle)

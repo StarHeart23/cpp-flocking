@@ -1,5 +1,5 @@
 #include "GLSteering_Seek.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 
 GLSteering_Seek::GLSteering_Seek(Vehicle* pVehicle)
 : GLSteering(pVehicle)

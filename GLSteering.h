@@ -1,7 +1,7 @@
 #ifndef _H_GL_STEERING_H
 #define _H_GL_STEERING_H
 
-#include "../GLVector/GLVector.h"
+#include "GLVector.h"
 #include <string>
 
 class Vehicle;

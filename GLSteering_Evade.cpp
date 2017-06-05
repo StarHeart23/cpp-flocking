@@ -1,5 +1,5 @@
 #include "GLSteering_Evade.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 
 GLSteering_Evade::GLSteering_Evade(Vehicle* pVehicle)
 : GLSteering(pVehicle)

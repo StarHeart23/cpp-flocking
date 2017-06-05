@@ -1,5 +1,5 @@
 #include "GLSteering_Composite.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 #include "GLMath.h"
 #include <algorithm>
 

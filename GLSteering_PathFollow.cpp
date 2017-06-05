@@ -1,5 +1,5 @@
 #include "GLSteering_PathFollow.h"
-#include "../GameEntity/Vehicle.h"
+#include "Vehicle.h"
 
 GLSteering_PathFollow::GLSteering_PathFollow(Vehicle* pVehicle)
 : GLSteering(pVehicle)
