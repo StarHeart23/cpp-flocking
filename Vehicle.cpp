@@ -2,13 +2,13 @@
 #include "GameWorld.h"
 #include "GLMath.h"
 #include <cassert>
+#include <cmath>
 #include <set>
 #include "GLRole_Unknown.h"
 
 Vehicle::Vehicle(GameWorld* pWorld)
 : MovingEntity(pWorld)
 , m_dVisibleDistance(50)
-, m_dHeight(0)
 {
 	m_pSteering=new GLSteering_Composite(this);
 	m_Height2WidthRatio=1.7;
@@ -40,7 +40,6 @@ void Vehicle::Update(const long &lElapsedTicks)
 {
 	MovingEntity::Update(lElapsedTicks);
 
-	assert(m_animator.GetModel() != NULL);
 
 	double elapsed_time=static_cast<double>(lElapsedTicks) / 1000.0;
 
@@ -53,9 +52,7 @@ void Vehicle::Update(const long &lElapsedTicks)
 	m_vVelocity=m_vVelocity.Truncate(m_dMaxSpeed);
 
 	double speedSq=m_vVelocity.lengthSq();
-	double speed=sqrt(speedSq);
-
-	UpdateFPS(speed);
+	double speed=std::sqrt(speedSq);
 
 	m_position += m_vVelocity * elapsed_time;
 
