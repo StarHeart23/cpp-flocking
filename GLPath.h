@@ -14,7 +14,7 @@ public:
 	GLVector m_position;
 };
 
-class GLPath : public GLObject
+class GLPath
 {
 public:
 	GLPath();

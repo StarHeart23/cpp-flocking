@@ -55,10 +55,10 @@ void GLPath::RandomCreate(int number_points, const GLVector &min_point, const GL
 	GLVector pt1=mid_point - min_point; 
 	GLVector pt2=max_point - mid_point;
 
-	pt1.x=abs(pt1.x);
-	pt1.z=abs(pt1.z);
-	pt2.x=abs(pt2.x);
-	pt2.z=abs(pt2.z);
+	pt1.x=std::abs(pt1.x);
+	pt1.z=std::abs(pt1.z);
+	pt2.x=std::abs(pt2.x);
+	pt2.z=std::abs(pt2.z);
 
 	double minx=pt1.x > pt2.x ? pt2.x : pt1.x;
 	double minz=pt1.z > pt2.z ? pt2.z : pt1.z;
@@ -136,41 +136,5 @@ void GLPath::Next()
 		{
 			m_pCurrent=m_pHead;
 		}
-	}
-}
-
-void GLPath::Render()
-{
-	
-
-	if(IsNull())
-	{
-		return;
-	}
-
-	GLPathNode* pCurrentNode=m_pHead;
-	glBegin(GL_LINE_STRIP);
-	while(pCurrentNode != NULL)
-	{
-		GLVector& pos=pCurrentNode->m_position;
-		glVertex3d(pos.x, pos.y+2, pos.z);
-		pCurrentNode=pCurrentNode->m_next;
-	}
-	glEnd();
-
-	pCurrentNode=m_pHead;
-	while(pCurrentNode != NULL)
-	{
-		GLVector& pos=pCurrentNode->m_position;
-		glEnable(GL_BLEND);
-		glColor4f(1.0f, 1.0f, 1.0f, 0.7f);
-		glPushMatrix();
-		
-		glTranslated(pos.x, pos.y+2, pos.z);
-		glutSolidSphere(0.5, 20, 20);
-		
-		glPopMatrix();
-		glDisable(GL_BLEND);
-		pCurrentNode=pCurrentNode->m_next;
 	}
 }
