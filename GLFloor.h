@@ -43,12 +43,6 @@ public:
 	static const int DEFAULT_LENGTH=120;
 
 protected:
-	GLuint m_display_lists;
-	bool m_bDisplayList;
-protected:
-	void GenDisplayLists();
-
-protected:
 	GLVector p1;
 	GLVector p2;
 	GLVector p3;

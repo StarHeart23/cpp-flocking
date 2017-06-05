@@ -1,6 +1,5 @@
 #include "GameWorld.h"
 #include "GLMath.h"
-#include <io.h>
 #include <sstream>
 #include <algorithm>
 #include <cfloat>
@@ -18,46 +17,17 @@ GameWorld::~GameWorld()
 
 double GameWorld::GetEnvHeight(double x, double z) const
 {
-	if(m_bShowFloor)
-	{
-		return 0;
-	}
-	else if(m_bShowTerrain)
-	{
-		return m_terrain.GetHeight(static_cast<int>(x), static_cast<int>(z));
-	}
-	else
-	{
-		return 0;
-	}
+	return 0;
 }
 
 double GameWorld::GetEnvWidth() const
 {
-	if(m_bShowFloor)
-	{
-		return m_floor.GetLength();
-	}
-	else if(m_bShowTerrain)
-	{
-		return m_terrain.GetWidth();
-	}
-
-	return 0;
+	return m_floor.GetLength();
 }
 
 double GameWorld::GetEnvLength() const
 {
-	if(m_bShowFloor)
-	{
-		return m_floor.GetLength();
-	}
-	else if(m_bShowTerrain)
-	{
-		return m_terrain.GetLength();
-	}
-
-	return 0;
+	return m_floor.GetLength();
 }
 
 void GameWorld::RemoveAgents()
@@ -83,14 +53,7 @@ void GameWorld::AddObstacle(Obstacle* pAgent)
 		return;
 	}
 	m_obs.push_back(pAgent);
-	if(m_bShowFloor)
-	{
-		m_floor.GetObstacleQuadTree().AddAgent(pAgent);
-	}
-	if(m_bShowTerrain)
-	{
-		m_terrain.GetObstacleQuadTree().AddAgent(pAgent);
-	}
+	m_floor.GetObstacleQuadTree().AddAgent(pAgent);
 }
 
 void GameWorld::AddAgent(Vehicle* pAgent)
@@ -288,7 +251,6 @@ std::string GameWorld::GetRegisteredAgentGroupStatus() const
 		oss << "<agent_status agent_id=\"" << obstacle_id << "\" p_x=\"" << position.x << "\" p_y=\"" << position.y << "\" p_z=\"" << position.z 
 			<< "\" />\n";
 	}
-	oss << "<current_state name=\"" << m_pState->GetStateName() << "\" />\n";
 
 	oss << "</root>\n";
 	return oss.str();

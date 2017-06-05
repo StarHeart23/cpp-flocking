@@ -7,5 +7,8 @@ set(SOURCE_FILES library.cpp library.h
         GLMath.cpp GLMath.h
         GLVector.cpp GLVector.h
         GLPath.cpp GLPath.h
+        GameEntity.cpp GameEntity.h
+        GameWorld.cpp GameWorld.h
+        GLFloor.cpp GLFloor.h
         )
 add_library(cpp_flocking ${SOURCE_FILES})

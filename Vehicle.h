@@ -2,7 +2,7 @@
 #define _H_VEHICLE_H
 
 #include "MovingEntity.h"
-#include "../GLSteering/GLSteering_Composite.h"
+#include "GLSteering_Composite.h"
 #include <string>
 
 class Vehicle : public MovingEntity

@@ -1,47 +1,26 @@
 #ifndef _H_GAME_ENTITY_H
 #define _H_GAME_ENTITY_H
 
-#include "../GLObject/GLObject.h"
-#include "../GLVector/GLVector.h"
-#include "../GLShape/GLSphere.h"
-#include "../GLShape/GLCube.h"
-#include "../GLRole/GLRole.h"
+#include "GLVector.h"
+#include "GLRole.h"
 #include <vector>
 #include <map>
 
 class GameWorld;
 typedef std::map<std::string, GLRole*> AgentRoleGroup;
 
-class GameEntity : public GLObject
+class GameEntity
 {
 public:
 	GameEntity(GameWorld* pWorld);
 	virtual ~GameEntity();
 
 public:
-	virtual void PreRender();
-	virtual void PostRender();
-
-public:
-	virtual void Render();
 	virtual void Update(const long& lElapsedTicks);
 
-protected:
-	virtual void RenderField();
-	virtual void GenDisplayLists();
-	virtual void GenDisplayList_Dot(GLuint& display_list_id);
-	virtual void GenDisplayList_Field(GLuint& display_list_id);
-public:
-	virtual void RenderDot();
-
-public:
-	void ShowField(bool bShow) { m_bShowField=bShow; }
-	bool IsFieldShown() const { return m_bShowField; }
 
 public:
 	double get_bounding_radius() const { return m_bounding_radius; }
-	GLSphere GetBoundingSphere() const;
-	GLCube GetBoundingCube() const;
 
 public:
 	void EnforceNonPenetration(GameEntity* pAgent);
@@ -54,13 +33,6 @@ protected:
 	double m_bounding_radius;
 	GLVector m_position;
 	GameWorld* m_pWorld;
-	bool m_bShowField;
-	bool m_bShowDot;
-	GLuint m_glFieldList;
-	bool m_bDisplayList;
-
-public:
-	void ShowDot(bool bShowDot) { m_bShowDot=bShowDot; }
 
 protected:
 	double m_Height2WidthRatio;
@@ -87,12 +59,6 @@ public:
 	void SetSize(double dSize) { m_dSize=dSize; }
 	double GetSize() const { return m_dSize; }
 
-protected:
-	GLVector m_vColor;
-public:
-	void SetColor(double r, double g, double b);
-	GLVector GetColor() const { return m_vColor; }
-	void SetColor(const GLVector& vColor) { m_vColor=vColor; }
 
 public:
 	void set_bound_radius(double r) { m_bounding_radius=r; }
@@ -109,14 +75,6 @@ public:
 public:
 	virtual void set_position(const GLVector& position);
 	GLVector get_position() const { return m_position; }
-
-public:
-	void SetCameraFocus(bool bFocus) { m_bCameraFocus=bFocus; }
-	bool IsCameraFocus() const { return m_bCameraFocus; }
-	bool IntersectWithMouse(double& intersection_distance) const;
-	bool IntersectWithMouse() const;
-protected:
-	bool m_bCameraFocus;
 
 public:
 	static const int ZONE_LAND=1;
