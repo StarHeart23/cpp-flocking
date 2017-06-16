@@ -1,0 +1,19 @@
+# Enable C++ support
+language: cpp
+# Compiler selection
+compiler:
+  - clang
+  - gcc
+# Build steps
+script:
+  - mkdir build
+  - cd build
+  - cmake .. && make
+
+- os: linux
+  compiler: clang
+  addons:
+    apt:
+      sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-precise-3.7', 'kalakris-cmake']
+      packages: ['clang-3.7', 'cmake']
+  env: COMPILER=clang++-3.7
